@@ -21,7 +21,6 @@ function player(name,nachname) {
   }))
 }
 
-
 function notFound() {
   $app.html(notFoundTpl())
 }

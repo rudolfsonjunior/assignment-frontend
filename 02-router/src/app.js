@@ -15,9 +15,9 @@ function contact() {
   $app.html(contactTpl())
 }
 
-function player(name) {
+function player(name,nachname) {
   $app.html(playerTpl({
-    name
+    name,nachname
   }))
 }
 
@@ -28,6 +28,6 @@ function notFound() {
 
 router('/', index);
 router('/contact', contact);
+router('/player/:name/:id', player);
 router('*', notFound);
-router('/player/:name', player);
 router();

@@ -28,6 +28,6 @@ function notFound() {
 
 router('/', index);
 router('/contact', contact);
-router('/player/:name/:id', player);
+router('/player/:name/:nachname', player);
 router('*', notFound);
 router();

@@ -14,7 +14,7 @@ function ClickListener() {
 
   const links = document.getElementsByTagName('a');
 
-  for (var i = 0; i < links.length; i++) {
+  for (let i = 0; i < links.length; i++) {
     links[i].addEventListener('click', e => {
       e.preventDefault();
       console.log(e.srcElement);
@@ -33,7 +33,7 @@ function ClickListener() {
 
 function init() {
 
-  const path = window.location.pathname;
+  let path = window.location.pathname;
 
   goto(path);
 
@@ -41,11 +41,11 @@ function init() {
 
 function goto(path) {
 
-  const splittedPath = path.split('/');
+  let splittedPath = path.split('/');
 
   for (const [route, fn] of routes.entries()) {
 
-    const splittedRoute = route.split('/');
+    let splittedRoute = route.split('/');
 
     if (route == path) {
 

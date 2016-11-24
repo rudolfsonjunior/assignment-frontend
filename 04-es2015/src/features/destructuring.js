@@ -11,4 +11,12 @@ export function es5() {
 }
 
 export function es6() {
+  function d(spec){
+    let sum = 0;
+    for(let i in spec){
+      sum += spec[i];
+    }
+    return sum
+  }
+  return d
 }

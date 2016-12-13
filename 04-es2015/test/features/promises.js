@@ -14,7 +14,9 @@ export default function() {
     })
   })
 
-  it('should show Promise behavior in ES6', () => {
-    es6().should.eql(10);
+  it('should show Promise behavior in ES6', (done) => {
+    es6()
+      .then(val => val.should.eql(10) && done())
+      .catch(err => done(err))
   })
 }

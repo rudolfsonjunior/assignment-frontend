@@ -119,6 +119,14 @@
         stroke-dashoffset: 3.5em;
       }
     }
+  
+  .slider:hover{
+    cursor: pointer;
+  }
+  .text-slider-commited{
+    opacity: 0;
+  }
+  
   </style>
 </head>
 <body>
@@ -140,7 +148,58 @@
     </div>
   </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="//localhost:35729/livereload.js"></script>
 <script src="/app.js"></script>
+<script>
+
+  $( document ).ready(function() {
+
+    console.log( "ready!" );
+    var isMouseDown = false;
+
+    $('.slider').mousedown(function(){
+
+      var isMouseDown = true;  
+      console.log('down: '+isMouseDown);
+
+      $('.btn-interaction').mousemove(function(e){
+
+        var xRect = e.pageX - 70;
+        var xText = e.pageX - 145;
+        var xText2 = e.pageX - 340;
+
+        if(xRect < 295 && isMouseDown){
+
+          $('.rect-slider').css('width',xRect);
+          $('.text-slider').attr('x',xText);
+          $('.text-slider-commited').attr("x",xText2);
+          $('.text-slider-commited').css("opacity",e.pageX/300);
+
+          
+
+        } else {
+
+          if( isMouseDown ){
+
+            alert('button clicked and dragged');
+
+          }
+          
+          $('.rect-slider').css('width', 70);
+          $('.text-slider').attr('x',13);
+          $('.text-slider-commited').attr("x",-100);
+          $('.text-slider-commited').css("opacity",0);
+          isMouseDown = false;
+
+        }
+
+      });
+
+  });
+
+});
+  
+</script>
 </body>
 </html>
